@@ -1,0 +1,44 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.3.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'notificationService'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+
+	compileOnly('org.projectlombok:lombok')	
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile("org.springframework.boot:spring-boot-devtools")
+    
+    compile("org.springframework.boot:spring-boot-starter-data-rest")
+    
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile('org.hibernate:hibernate-core')
+    //compile('org.hibernate:hibernate-validator:jar:5.4.1.Final')
+    //compile('org.hibernate:hibernate-entitymanager:jar:5.2.10.Final')
+    compile("org.postgresql:postgresql:${postgresql_version}") 
+    compile('org.hsqldb:hsqldb')
+    
+    testCompile("org.springframework.boot:spring-boot-starter-test")  
+}
+

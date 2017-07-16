@@ -1,0 +1,1 @@
+INSERT INTO rest_service."notification" (text) VALUES ('Your trade has been submited.');
