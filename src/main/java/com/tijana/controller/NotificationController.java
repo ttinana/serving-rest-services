@@ -37,7 +37,7 @@ public class NotificationController {
 
 	@RequestMapping(value="/api/notifications/{id}", 
 				method = RequestMethod.GET,
-				produces=MediaType.APPLICATION_JSON_VALUE)
+				produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Notification> getNotification(@PathVariable("id") Long id){
 		Notification notification = notificationService.findOne(id);
 	
@@ -50,8 +50,8 @@ public class NotificationController {
 
 	@RequestMapping(value="/api/notifications", 
 		method = RequestMethod.POST,
-		consumes=MediaType.APPLICATION_JSON_VALUE,
-		produces=MediaType.APPLICATION_JSON_VALUE)
+		consumes=MediaType.APPLICATION_JSON_UTF8_VALUE,
+		produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Notification> saveNotification(@RequestBody Notification notification){
 	
 		Notification savedNotification = notificationService.save(notification);
@@ -62,8 +62,8 @@ public class NotificationController {
 	@RequestMapping(
 	        value = "/api/notifications/{id}",
 	        method = RequestMethod.PUT,
-	        consumes = MediaType.APPLICATION_JSON_VALUE,
-	        produces = MediaType.APPLICATION_JSON_VALUE)
+	        consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
+	        produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Notification> updateNotification(@RequestBody Notification notification){
 	 
 		Notification updatedNotification = notificationService.update(notification);
@@ -77,10 +77,10 @@ public class NotificationController {
 	@RequestMapping(
 	        value = "/api/notifications/{id}",
 	        method = RequestMethod.DELETE,
-	        consumes = MediaType.APPLICATION_JSON_VALUE)
+	        consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Notification> deleteNotification(@PathVariable("id") Long id/*,
 	        @RequestBody Notification notification*/) {
-	
+		//Notification notification = notificationService.findOne(id);
 		notificationService.delete(id);
 	
 	    return new ResponseEntity<Notification>(HttpStatus.NO_CONTENT);
