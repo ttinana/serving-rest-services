@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import com.tijana.model.Notification;
+import com.tijana.model.builders.NotificationBuilder;
 
 /**
  * @author ttinana
@@ -14,19 +15,18 @@ import com.tijana.model.Notification;
  */
 public class HelperClass {
 
-		public static Collection<Notification> findAll() {
-		Notification notification = new Notification();
-		notification.setId(1L);
+	public static Collection<Notification> findAll() {
+		Notification notification = Notification.builder().id(1L).build();
 
 		Collection<Notification> notifications = new ArrayList<>();
 		notifications.add(notification);
 		return notifications;
-		}
-		
-		public static Notification findOne() {
-			Notification notification = new Notification();
-			notification.setId(1L);
-			return notification;
-		}
+	}
+
+	public static Notification findOne() {
+		Notification notification = Notification.builder().id(1L).build();
+		notification.setId(1L);
+		return notification;
+	}
 
 }
