@@ -13,18 +13,19 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlTransient;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 /**
  * @author ttinana
  *
  */
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "`subscription`")
 @NoArgsConstructor
@@ -39,6 +40,7 @@ public class Subscription extends BaseEntity {
 	//@JsonBackReference
 	@JsonIgnore
 	@OneToMany(mappedBy = "subscription", fetch = FetchType.EAGER)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Set<Notification> notificationList = new HashSet<Notification>();
 	
 	public Subscription(Long id){
