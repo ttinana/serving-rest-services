@@ -15,24 +15,23 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.ToString;
 
 /**
  * @author ttinana
  *
  */
-@Data
 @Entity
-@EqualsAndHashCode(callSuper=true)
 @Table(name = "`notification`")
-@ToString(callSuper = true)
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id", scope=Subscription.class)
 public class Notification extends BaseEntity{
-	
+	@Getter
 	@Column(name = "`text`", length = 100, nullable = false, unique = true)
 	private String text;
 	
 	//@JsonManagedReference
+	@Getter
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "subscription_id", referencedColumnName = "id", nullable = false)
     private Subscription subscription;

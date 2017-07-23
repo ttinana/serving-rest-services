@@ -38,14 +38,14 @@ public class NotificationServiceImpl implements NotificationService {
 	@Override
 	public Notification save(Notification notification) {
 		notificationDAO.save(notification);		
-		return notification;
+		return notificationDAO.findOne(notification.getId());
 	}
 
 	@Override
 	public Notification update(Notification notification) {
-		if(findOne(notification.getId()) !=null){
+		//if(findOne(notification.getId()) !=null){
 		notificationDAO.save(notification);
-		}
+		//}
 		return notification;
 	}
 

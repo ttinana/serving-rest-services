@@ -78,11 +78,9 @@ public class NotificationController {
 	        value = "/api/notifications/{id}",
 	        method = RequestMethod.DELETE,
 	        consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<Notification> deleteNotification(@PathVariable("id") Long id/*,
-	        @RequestBody Notification notification*/) {
-		//Notification notification = notificationService.findOne(id);
-		notificationService.delete(id);
-	
+	public ResponseEntity<Notification> deleteNotification(@PathVariable("id") Long id) {
+		
+		notificationService.delete(id);	
 	    return new ResponseEntity<Notification>(HttpStatus.NO_CONTENT);
 	}
 

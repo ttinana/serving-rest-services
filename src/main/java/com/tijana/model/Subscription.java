@@ -18,20 +18,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 /**
  * @author ttinana
  *
  */
-@Data
 @Entity
-@EqualsAndHashCode(callSuper = true)
 @Table(name = "`subscription`")
-@ToString(callSuper = true)
 @NoArgsConstructor
 public class Subscription extends BaseEntity {
-
+	@Setter
 	@Column(name = "`type`", length = 100, nullable = false, unique = false)
 	private String type;
 
